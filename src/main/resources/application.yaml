@@ -1,0 +1,38 @@
+server:
+  port: 8080
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+      httpclient:
+        ssl:
+          use-insecure-trust-manager: true
+        connect-timeout: 2000
+        response-timeout: 5s
+      routes:
+        - id: search
+          uri: lb://SEARCH-SERVICE
+          predicates:
+            - Path=/search/**
