@@ -36,3 +36,7 @@ spring:
           uri: lb://SEARCH-SERVICE
           predicates:
             - Path=/search/**
+        - id: judge
+          uri: lb://JUDGE-SERVICE
+          predicates:
+            - Path=/judge/**
