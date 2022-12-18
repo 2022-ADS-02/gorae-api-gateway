@@ -36,13 +36,13 @@ spring:
         connect-timeout: 2000
         response-timeout: 5s
       routes:
-        - id: search
-          uri: lb://SEARCH-SERVICE
+        - id: CRAWLING
+          uri: lb://CRAWLING-SERVICE
           predicates:
             - Path=/search/**
         - id: judge
           uri: lb://JUDGE-SERVICE
           predicates:
             - Path=/judge/**
-          filters:
-            - AuthorizationHeaderFilter
+#          filters:
+#            - AuthorizationHeaderFilter
