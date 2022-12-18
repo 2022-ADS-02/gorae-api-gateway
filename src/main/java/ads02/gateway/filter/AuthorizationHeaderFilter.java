@@ -22,6 +22,7 @@ public class AuthorizationHeaderFilter extends AbstractGatewayFilterFactory<Abst
 
     @Autowired
     public AuthorizationHeaderFilter(JwtService jwtService) {
+        super(AbstractGatewayFilterFactory.NameConfig.class);
         this.jwtService = jwtService;
     }
 
