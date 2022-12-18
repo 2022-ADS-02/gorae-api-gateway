@@ -33,8 +33,8 @@ spring:
       httpclient:
         ssl:
           use-insecure-trust-manager: true
-        connect-timeout: 25000
-        response-timeout: 30s
+        connect-timeout: 290000
+        response-timeout: 300s
       routes:
         - id: CRAWLING
           uri: lb://CRAWLING-SERVICE
