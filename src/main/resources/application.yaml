@@ -10,6 +10,10 @@ eureka:
     service-url:
       defaultZone: http://192.168.2.11:8761/eureka
 
+jwt:
+  secret:
+    access: thisisjwtsecretkeyforgoraeonlinejudge20221218
+
 spring:
   application:
     name: gateway-service
@@ -40,3 +44,5 @@ spring:
           uri: lb://JUDGE-SERVICE
           predicates:
             - Path=/judge/**
+          filters:
+            - AuthorizationHeaderFilter
