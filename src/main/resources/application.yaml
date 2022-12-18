@@ -40,15 +40,15 @@ spring:
           uri: lb://CRAWLING-SERVICE
           predicates:
             - Path=/search/**
-          filters:
-            - AuthorizationHeaderFilter
+#          filters:
+#            - AuthorizationHeaderFilter
         - id: judge
           uri: lb://JUDGE-SERVICE
           predicates:
             - Path=/judge/**
-        - id: auth
-          uri: lb://AUTH-SERVICE
-          predicates:
-            - Path=/members/**
+#        - id: auth
+#          uri: lb://AUTH-SERVICE
+#          predicates:
+#            - Path=/members/**
 #          filters:
 #            - AuthorizationHeaderFilter
